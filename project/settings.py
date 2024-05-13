@@ -10,6 +10,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,7 +26,8 @@ INSTALLED_APPS = [
     'aplicativos.departamentos',
     'aplicativos.documentos',
     'aplicativos.registro_hora_extra',
-    'aplicativos.core'
+    'aplicativos.core',
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -33,6 +38,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -52,6 +58,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
     },
 ]
 
