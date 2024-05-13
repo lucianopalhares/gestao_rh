@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,6 +22,7 @@ INSTALLED_APPS = [
     'aplicativos.departamentos',
     'aplicativos.documentos',
     'aplicativos.registro_hora_extra',
+    'aplicativos.core'
 ]
 
 MIDDLEWARE = [
@@ -38,7 +40,9 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'project', 'templates'),  
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
